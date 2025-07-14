@@ -10,5 +10,6 @@ export function loadHome(container) {
         <button type="submit">Save</button>
       </form>
     </div>
+
   `;
 }

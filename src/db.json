@@ -6,7 +6,6 @@
       "password": "1234",
       "name": "Roxana Naranjo",
       "email": "rox@example.com",
-      "phone": "3205502157",
       "dateOfAdmission": "2024-07-01",
       "role": "admin"
     },
@@ -15,19 +14,18 @@
       "password": "T123",
       "name": "Lola",
       "email": "Lola@gmail.com",
-      "phone": "314578965",
       "dateOfAdmission": "2025-06-04",
       "role": "user",
       "id": "3"
     },
     {
-      "id": "cd31",
-      "name": "Jax Jimenez",
-      "email": "jax@hola.com",
-      "dateOfAdmission": "2025-07-03",
-      "role": "user",
-      "username": "jax",
-      "password": "12345"
+      "id": "e848",
+      "username": "Hola",
+      "password": "123456789",
+      "name": "Hola jimenez",
+      "email": "hola@gmail.com",
+      "dateOfAdmission": "2025-07-10",
+      "role": "user"
     }
   ]
 }

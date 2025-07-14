@@ -40,11 +40,9 @@ async function register() {
   const password = document.getElementById("regPassword").value.trim();
   const name = document.getElementById("regName").value.trim();
   const email = document.getElementById("regEmail").value.trim();
-  const phone = document.getElementById("regPhone").value.trim();
-  const enrollNumber = document.getElementById("regEnroll").value.trim();
   const dateOfAdmission = document.getElementById("regDate").value;
 
-  if (!username || !password || !name || !email || !phone || !dateOfAdmission)
+  if (!username || !password || !name || !email || !dateOfAdmission)
     return alert("All fields are required.");
 
   const res = await fetch(apiUrl);
@@ -56,7 +54,7 @@ async function register() {
   await fetch(apiUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password, name, email, phone, dateOfAdmission, role: "user" })
+    body: JSON.stringify({ username, password, name, email, dateOfAdmission, role: "user" })
   });
 
   alert("Registration successful. Please log in.");

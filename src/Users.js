@@ -18,7 +18,6 @@ export async function initApp(container, currentUser) {
           <div></div>
           <div>Name</div>
           <div>Email</div>
-          <div>Phone</div>
           <div>date</div>
           <div></div>
         </div>
