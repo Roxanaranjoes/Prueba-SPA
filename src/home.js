@@ -1,8 +1,14 @@
 export function loadHome(container) {
   container.innerHTML = `
-    <div class="home-content">
-      <h3>Events</h3>
-      <p>Manage users or view available information.</p>
+    <div class="create-event">
+      <h2>Create Event</h2>
+      <form>
+        <input type="text" placeholder="Name" required />
+        <input type="text" placeholder="Description" required />
+        <input type="date" required />
+        <input type="number" placeholder="Capacity" required />
+        <button type="submit">Save</button>
+      </form>
     </div>
   `;
 }

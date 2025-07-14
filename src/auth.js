@@ -19,13 +19,13 @@ export function showRegisterView() {
 }
 
 async function login() {
-  const username = document.getElementById("loginUser").value.trim();
+  const email = document.getElementById("loginUser").value.trim();
   const password = document.getElementById("loginPass").value.trim();
-  if (!username || !password) return alert("Complete both fields.");
+  if (!email || !password) return alert("Complete both fields.");
 
   const res = await fetch(apiUrl);
   const users = await res.json();
-  const user = users.find(u => u.username === username && u.password === password);
+  const user = users.find(u => u.email === email && u.password === password);
 
   if (user) {
     localStorage.setItem("user", JSON.stringify(user));
@@ -44,7 +44,7 @@ async function register() {
   const enrollNumber = document.getElementById("regEnroll").value.trim();
   const dateOfAdmission = document.getElementById("regDate").value;
 
-  if (!username || !password || !name || !email || !phone || !enrollNumber || !dateOfAdmission)
+  if (!username || !password || !name || !email || !phone || !dateOfAdmission)
     return alert("All fields are required.");
 
   const res = await fetch(apiUrl);
@@ -56,7 +56,7 @@ async function register() {
   await fetch(apiUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, password, name, email, phone, enrollNumber, dateOfAdmission, role: "user" })
+    body: JSON.stringify({ username, password, name, email, phone, dateOfAdmission, role: "user" })
   });
 
   alert("Registration successful. Please log in.");

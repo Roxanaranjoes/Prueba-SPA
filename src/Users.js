@@ -10,16 +10,15 @@ export async function initApp(container, currentUser) {
         <h2>Visitors</h2>
         <div class="topbar-right">
           <input type="search" id="search" class="search-input" placeholder="Buscar..." />
-          ${isAdmin ? '<button class="add-user-btn" id="btnAdd">AGREGAR USUARIO</button>' : ""}
+          ${isAdmin ? '<button class="add-user-btn" id="btnAdd"></button>' : "Add New Event"}
         </div>
       </div>
       <div class="user-list">
         <div class="user-list-header">
           <div></div>
-          <div>Nombre</div>
-          <div>Correo</div>
-          <div>Teléfono</div>
-          <div>Matrícula</div>
+          <div>Name</div>
+          <div>Email</div>
+          <div>Phone</div>
           <div>Fecha de admisión</div>
           <div></div>
         </div>
@@ -32,7 +31,6 @@ export async function initApp(container, currentUser) {
       <input type="text" id="name" placeholder="Nombre Completo" />
       <input type="email" id="email" placeholder="correo@ejemplo.com" />
       <input type="tel" id="phone" placeholder="1234567890" />
-      <input type="text" id="enrollNumber" placeholder="12345678901234" />
       <input type="date" id="dateOfAdmission" />
       ${isAdmin ? `
         <input type="text" id="username" placeholder="Nombre de usuario" />
@@ -58,7 +56,6 @@ function openForm() {
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
   document.getElementById("phone").value = "";
-  document.getElementById("enrollNumber").value = "";
   document.getElementById("dateOfAdmission").value = "";
 
   const usernameInput = document.getElementById("username");
@@ -84,11 +81,10 @@ function renderUsers(list = users, isAdmin = false) {
     div.className = "user";
 
     div.innerHTML = `
-      <img src="imgs/istockphoto-1458683533-612x612 (1).jpg" alt="User" />
+      <img src="imgs/Imagen pegada.png" alt="User" />
       <div>${user.name}</div>
       <div>${user.email}</div>
       <div>${user.phone}</div>
-      <div>${user.enrollNumber}</div>
       <div>${user.dateOfAdmission}</div>
       <div class="actions"></div>
     `;
@@ -125,27 +121,25 @@ function saveUser(isAdmin) {
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const phone = document.getElementById("phone").value.trim();
-  const enrollNumber = document.getElementById("enrollNumber").value.trim();
   const dateOfAdmission = document.getElementById("dateOfAdmission").value;
 
   let username = "", password = "";
   if (isAdmin) {
     username = document.getElementById("username").value.trim();
     password = document.getElementById("password").value.trim();
-    if (!username || !password) return alert("Usuario y contraseña son obligatorios");
+    if (!username || !password) return alert("Username and password are required");
   }
 
   if (!name || !email || !phone || !enrollNumber || !dateOfAdmission)
-    return alert("Todos los campos son obligatorios");
+    return alert("All fields are required");
 
-  if (!validateEmail(email)) return alert("Correo inválido");
-  if (!validatePhone(phone)) return alert("Teléfono inválido");
+  if (!validateEmail(email)) return alert("Invalid email");
+  if (!validatePhone(phone)) return alert("Invalid Phone");
 
   const newUser = {
     name,
     email,
     phone,
-    enrollNumber,
     dateOfAdmission,
     role: "user"
   };
@@ -166,7 +160,7 @@ function saveUser(isAdmin) {
       .then(res => res.json())
       .then(data => {
         if (isAdmin && data.find(u => u.username === username)) {
-          return alert("Ese nombre de usuario ya existe");
+          return alert("That username already exists");
         }
 
         fetch(apiUrl, {
@@ -188,7 +182,6 @@ function editUser(id) {
       document.getElementById("name").value = user.name;
       document.getElementById("email").value = user.email;
       document.getElementById("phone").value = user.phone;
-      document.getElementById("enrollNumber").value = user.enrollNumber;
       document.getElementById("dateOfAdmission").value = user.dateOfAdmission;
 
       const usernameInput = document.getElementById("username");
