@@ -80,7 +80,7 @@ body {
 
 aside {
   width: auto;
-  background: #f4ede5;
+  background: #eee1f2;
   min-height: 100vh;
   padding: 1.5rem 1rem;
   display: flex;
@@ -90,7 +90,7 @@ aside {
 aside h1 {
   font-size: 1.2rem;
   font-weight: bold;
-  color: purple;
+  color: rgb(0, 0, 0);
   margin-bottom: 2rem;
 }
 
@@ -189,7 +189,7 @@ main {
 }
 
 .add-user-btn {
-  background: #6e00ff;
+  background: #6900fd;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -236,7 +236,7 @@ main {
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
-  color: #6e00ff;
+  color: #6900fd;
   margin-right: 0.5rem;
 }
 

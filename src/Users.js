@@ -7,7 +7,7 @@ export async function initApp(container, currentUser) {
   container.innerHTML = `
     <main>
       <div class="topbar">
-        <h2>Students List</h2>
+        <h2>Visitors</h2>
         <div class="topbar-right">
           <input type="search" id="search" class="search-input" placeholder="Buscar..." />
           ${isAdmin ? '<button class="add-user-btn" id="btnAdd">AGREGAR USUARIO</button>' : ""}
