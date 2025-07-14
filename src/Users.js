@@ -10,7 +10,7 @@ export async function initApp(container, currentUser) {
         <h2>Visitors</h2>
         <div class="topbar-right">
           <input type="search" id="search" class="search-input" placeholder="Buscar..." />
-          ${isAdmin ? '<button class="add-user-btn" id="btnAdd"></button>' : "Add New Event"}
+          ${isAdmin ? '<button class="add-user-btn" id="btnAdd">ADD NEW USER</button>' : ""}
         </div>
       </div>
       <div class="user-list">
@@ -19,7 +19,7 @@ export async function initApp(container, currentUser) {
           <div>Name</div>
           <div>Email</div>
           <div>Phone</div>
-          <div>Fecha de admisión</div>
+          <div>date</div>
           <div></div>
         </div>
         <div id="userList"></div>
@@ -28,16 +28,15 @@ export async function initApp(container, currentUser) {
 
     <div class="form-popup" id="userForm" style="display: none;">
       <input type="hidden" id="editId" />
-      <input type="text" id="name" placeholder="Nombre Completo" />
-      <input type="email" id="email" placeholder="correo@ejemplo.com" />
-      <input type="tel" id="phone" placeholder="1234567890" />
+      <input type="text" id="name" placeholder="name" />
+      <input type="email" id="email" placeholder="email" />
       <input type="date" id="dateOfAdmission" />
       ${isAdmin ? `
-        <input type="text" id="username" placeholder="Nombre de usuario" />
-        <input type="password" id="password" placeholder="Contraseña" />
+        <input type="text" id="username" placeholder="username" />
+        <input type="password" id="password" placeholder="password" />
       ` : ""}
-      <button id="saveBtn">Guardar</button>
-      <button id="cancelBtn">Cancelar</button>
+      <button id="saveBtn">Save</button>
+      <button id="cancelBtn">Cancel</button>
     </div>
   `;
 
@@ -55,7 +54,6 @@ function openForm() {
   document.getElementById("editId").value = "";
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
-  document.getElementById("phone").value = "";
   document.getElementById("dateOfAdmission").value = "";
 
   const usernameInput = document.getElementById("username");
@@ -84,7 +82,6 @@ function renderUsers(list = users, isAdmin = false) {
       <img src="imgs/Imagen pegada.png" alt="User" />
       <div>${user.name}</div>
       <div>${user.email}</div>
-      <div>${user.phone}</div>
       <div>${user.dateOfAdmission}</div>
       <div class="actions"></div>
     `;
@@ -120,7 +117,7 @@ function saveUser(isAdmin) {
   const id = document.getElementById("editId").value;
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
+
   const dateOfAdmission = document.getElementById("dateOfAdmission").value;
 
   let username = "", password = "";
@@ -130,16 +127,15 @@ function saveUser(isAdmin) {
     if (!username || !password) return alert("Username and password are required");
   }
 
-  if (!name || !email || !phone || !enrollNumber || !dateOfAdmission)
+  if (!name || !email || !dateOfAdmission)
     return alert("All fields are required");
 
   if (!validateEmail(email)) return alert("Invalid email");
-  if (!validatePhone(phone)) return alert("Invalid Phone");
+
 
   const newUser = {
     name,
     email,
-    phone,
     dateOfAdmission,
     role: "user"
   };
@@ -181,7 +177,6 @@ function editUser(id) {
       document.getElementById("editId").value = user.id;
       document.getElementById("name").value = user.name;
       document.getElementById("email").value = user.email;
-      document.getElementById("phone").value = user.phone;
       document.getElementById("dateOfAdmission").value = user.dateOfAdmission;
 
       const usernameInput = document.getElementById("username");

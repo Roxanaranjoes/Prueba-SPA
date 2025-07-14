@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "Admin",
       "password": "1234",
       "name": "Roxana Naranjo",
@@ -11,16 +11,6 @@
       "role": "admin"
     },
     {
-      "name": "Pepe",
-      "email": "Pepe@gmail.com",
-      "phone": "3145033232",
-      "dateOfAdmission": "2025-07-04",
-      "role": "user",
-      "username": "Pepe",
-      "password": "12345",
-      "id": 2
-    },
-    {
       "username": "Lola",
       "password": "T123",
       "name": "Lola",
@@ -28,7 +18,16 @@
       "phone": "314578965",
       "dateOfAdmission": "2025-06-04",
       "role": "user",
-      "id": 3
+      "id": "3"
+    },
+    {
+      "id": "cd31",
+      "name": "Jax Jimenez",
+      "email": "jax@hola.com",
+      "dateOfAdmission": "2025-07-03",
+      "role": "user",
+      "username": "jax",
+      "password": "12345"
     }
   ]
 }
