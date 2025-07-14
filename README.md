@@ -1,111 +1,95 @@
-# Event Manager SPA
+# Single Page Application - Prueba SPA
 
-Una Single Page Application (SPA) desarrollada con **Vite** y **JavaScript puro**, que permite la gestión de eventos por parte de administradores y el registro a eventos por parte de visitantes. Usa `json-server` para simular la base de datos y `localStorage` para la persistencia de sesión.
-
----
-
-## 📌 Información del coder
-
-- **Nombre:** Roxana Naranjo Estrada
-- **Clan:** Linus
-- **Correo:** rnaranjo@Unal.edu.co
-- **Documento de identidad:** 1001362259
+A simple and responsive Single Page Application (SPA) built with **Vite** and **vanilla JavaScript**. This project demonstrates routing without frameworks and dynamic content rendering on a single HTML page.
 
 ---
 
-## 🚀 Cómo ejecutar el proyecto
+## 📌 Project Information
 
-### 1. Clonar el repositorio
+- **Author:** Roxana Naranjo Estrada  
+- **Email:** rnaranjo@unal.edu.co  
+- **Clan:** Linus  
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/tuusuario/event-manager-roxana123.git
-cd event-manager-roxana123
+git clone https://github.com/Roxanaranjoes/Prueba-SPA.git
+cd Prueba-SPA
 ```
 
-### 2. Instalar dependencias
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Iniciar el servidor de desarrollo
+### 3. Run the Development Server
 
 ```bash
 npm run dev
 ```
 
-Esto abrirá la app en `http://localhost:5173`.
+Visit `http://localhost:5173` in your browser to view the app.
 
 ---
 
-## 💾 Simulación de base de datos con JSON Server
+##  How to Run Locally
 
-### 1. Instalar json-server globalmente si no lo tienes
+1. **Clone the repository or download the ZIP**
+2. **Install JSON Server globally (if you haven't):**
+   ```bash
+   npm install -g json-server
+   ```
+3. **Navigate to the project folder and run JSON Server:**
+   ```bash
+   json-server --watch db.json --port 3000
+   ```
+4. **Open `index.html` in your browser**
 
-```bash
-npm install -g json-server
-```
-
-### 2. Ejecutar JSON Server
-
-```bash
-json-server --watch db.json --port 3000
-```
-
-La API estará disponible en `http://localhost:3000`.
-
----
-
-## 🧪 Usuario administrador por defecto
-
-```json
-{
-  "email": "admin@example.com",
-  "password": "admin123",
-  "role": "admin"
-}
-```
-
----
-
-## 🧱 Estructura del proyecto
+## 🧱 Project Structure
 
 ```
 src/
-├── auth/             # Vistas de login y registro
-├── views/            # Vistas de dashboard, crear/editar eventos
-├── components/       # Componentes reutilizables
-├── services/         # Servicios de sesión, eventos, autenticación
-├── styles/           # Estilos CSS
-├── main.js           # Punto de entrada
-├── router.js         # Sistema de rutas SPA
+├── components/       # Reusable UI components
+├── views/            # Page views (Home, About, etc.)
+├── router/           # SPA route logic
+├── styles/           # CSS styles
+├── main.js           # Entry point
+└── index.html        # Base HTML template
 ```
 
 ---
 
-## ✅ Funcionalidades principales
+## 🔧 Features
 
-- Registro e inicio de sesión con roles
-- Rutas protegidas según el rol del usuario
-- Persistencia de sesión con `localStorage`
-- CRUD completo de eventos para administradores
-- Visualización e inscripción a eventos para visitantes
-- Manejo de errores y rutas no válidas
-- SPA completamente responsiva
+- SPA routing using the URL hash (`#`)
+- Dynamic component rendering
+- Modular JavaScript architecture
+- Clean and maintainable structure
+- Responsive design with basic styling
 
 ---
 
-## 📬 Postman
+## 📎 Notes
 
-Incluye una colección Postman para probar los endpoints de usuarios y eventos (`postman_collection.json`).
-
----
-
-## 📎 Consideraciones
-
-- El nombre del proyecto en `package.json` debe seguir el formato: `nombreapellido123`
-- Usa `localStorage` para sesión y `json-server` para persistencia de datos
+- Built without frameworks such as React or Vue
+- Perfect for learning core SPA principles and Vite setup
+- Easily extendable with APIs or persistent data
 
 ---
 
-**¡Gracias por revisar este proyecto!**
+## 🧪 Future Improvements
+
+- Add form handling and validation  
+- Connect to a backend or fake API (e.g., JSON Server)  
+- Improve styles and accessibility
+
+---
+
+**Thanks for checking out this project!**
+
+Feel free to fork or contribute 🛠️
